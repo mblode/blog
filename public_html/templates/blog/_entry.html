@@ -1,0 +1,75 @@
+{% extends '_layout' %}
+{% import '_macros/utilities' as utils %}
+
+{% block content %}
+
+<section>
+    <div>
+        <div>
+            {% if entry.featuredImage | length %}
+                {{ utils.lazyLoadImage(entry.featuredImage.one, "large") }}
+            {% endif %}
+
+            {% if entry.citation | length %}
+                <span>{{ entry.citation }}</span>
+            {% endif %}
+        </div>
+
+        <div>
+            {% if entry.topics.one | length %}
+                <h3>{{ entry.topics.one }}</h3>
+            {% endif %}
+
+            <h1>{{ entry.title }}</h1>
+
+            <p>By {{ entry.author }}</p>
+            <p>Published on {{ entry.postDate | date("M d, Y") }}</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div>
+        {% include "_includes/matrix_pageBody" %}
+    </div>
+</section>
+
+<section>
+    <div>
+        <div>
+            <h5>Filed under</h5>
+
+            {% nav category in entry.topics.all %}
+                <li>
+                    <a href="{{ category.url }}">{{ category.title }}</a>
+                </li>
+            {% endnav %}
+        </div>
+
+        <div>
+            <h1>The author</h1>
+
+            <div>
+                {% if entry.author.photo | length %}
+                    <div>
+                        <a href="{{ url('authors/'~entry.author.username) }}">
+                            {{ utils.lazyLoadImage(entry.author.photo, "thumb") }}
+                        </a>
+                    </div>
+                {% endif %}
+
+                <div>
+                    <h3>
+                        <a href="{{ url('authors/'~entry.author.username) }}">{{ entry.author }}</a>
+                    </h3>
+
+                    {% if entry.author.bio | length %}
+                        <div>{{ entry.author.bio }}</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

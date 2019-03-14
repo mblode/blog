@@ -1,0 +1,31 @@
+{% import '_macros/utilities' as utils %}
+
+{% set columns = (cols is defined) ? cols : 'col-sm-12 col-md-6 col-lg-4' %}
+
+<div class="{{ columns }} blog-card-col scroll-reveal">
+    <a href="{{ item.url }}" class="blog-card">
+        <div class="blog-card-inner">
+            {% if item.featuredImage | length %}
+                {{ utils.lazyLoadBgImage(item.featuredImage.one, "thumb", "blog-card-img") }}
+            {% endif %}
+
+            <h3>{{ item.title }}</h3>
+        </div>
+    </a>
+
+    {% if topic is defined %}
+
+        {% nav category in item.topics.all %}
+            <li>
+                <a href="{{ category.url }}">{{ category.title }}</a>
+            </li>
+        {% endnav %}
+
+    {% else %}
+
+        <div>
+            By <a href="{{ url('authors/'~item.author.username) }}">{{ item.author }}</a>
+        </div>
+
+    {% endif %}
+</div>

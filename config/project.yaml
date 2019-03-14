@@ -1,0 +1,478 @@
+categoryGroups:
+  946b1866-124f-4904-ad1f-d45980ff82b1:
+    handle: topics
+    name: Topics
+    siteSettings:
+      d31acb30-0eef-45e6-8b1c-ab6538efce86:
+        hasUrls: true
+        template: topics/_entry
+        uriFormat: 'topics/{slug}'
+    structure:
+      maxLevels: '1'
+      uid: 39e6d862-9dd3-45d8-b7d7-d9dcefa0eb1e
+dateModified: 1552558660
+email:
+  fromEmail: m@blode.co
+  fromName: Blog
+  transportType: craft\mail\transportadapters\Sendmail
+fieldGroups:
+  8840150e-1cfb-4df8-86a2-358d5e534313:
+    name: General
+fields:
+  10fb8514-2f60-40ca-91ac-c5858755bb35:
+    contentColumnType: text
+    fieldGroup: 8840150e-1cfb-4df8-86a2-358d5e534313
+    handle: bio
+    instructions: ''
+    name: Bio
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: '1'
+      columnType: text
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: SimpleWithLinks.json
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  1d2daaf5-054c-45fd-8720-29764bd1dcd3:
+    contentColumnType: string
+    fieldGroup: 8840150e-1cfb-4df8-86a2-358d5e534313
+    handle: topics
+    instructions: ''
+    name: Topics
+    searchable: true
+    settings:
+      branchLimit: ''
+      limit: null
+      localizeRelations: false
+      selectionLabel: ''
+      source: 'group:946b1866-124f-4904-ad1f-d45980ff82b1'
+      sources: '*'
+      targetSiteId: null
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Categories
+  c06d2aa2-55d7-483b-9b42-46228ae93a21:
+    contentColumnType: string
+    fieldGroup: 8840150e-1cfb-4df8-86a2-358d5e534313
+    handle: pageBody
+    instructions: ''
+    name: 'Page Body'
+    searchable: true
+    settings:
+      contentTable: '{{%matrixcontent_pagebody}}'
+      localizeBlocks: false
+      maxBlocks: ''
+      minBlocks: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Matrix
+  c91404ea-b3f4-4ebb-a2fb-171dbf75ea2b:
+    contentColumnType: string
+    fieldGroup: 8840150e-1cfb-4df8-86a2-358d5e534313
+    handle: homepageContent
+    instructions: ''
+    name: 'Homepage content'
+    searchable: true
+    settings:
+      contentTable: '{{%matrixcontent_homepagecontent}}'
+      localizeBlocks: false
+      maxBlocks: ''
+      minBlocks: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Matrix
+  d4c5c799-bdef-487d-9171-4a11080457d3:
+    contentColumnType: text
+    fieldGroup: 8840150e-1cfb-4df8-86a2-358d5e534313
+    handle: citation
+    instructions: ''
+    name: Citation
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  d95bd7dd-1306-4c7c-a4fb-75e6ce2ed2b1:
+    contentColumnType: string
+    fieldGroup: 8840150e-1cfb-4df8-86a2-358d5e534313
+    handle: featuredImage
+    instructions: ''
+    name: 'Featured Image'
+    searchable: true
+    settings:
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:f3f851db-ae4e-4239-840f-a387317b68b8'
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      restrictFiles: '1'
+      selectionLabel: ''
+      singleUploadLocationSource: 'volume:f3f851db-ae4e-4239-840f-a387317b68b8'
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: '1'
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+imageTransforms:
+  a7db6033-59e8-4daf-b402-c00746556db7:
+    format: null
+    handle: thumb
+    height: ''
+    interlace: none
+    mode: fit
+    name: Thumb
+    position: center-center
+    quality: '82'
+    width: '800'
+  bc29ed3e-2521-474e-b185-97ab584e1fa9:
+    format: null
+    handle: banner
+    height: ''
+    interlace: none
+    mode: crop
+    name: Banner
+    position: center-center
+    quality: '82'
+    width: '1400'
+  be10b480-ca53-46ac-a0a0-389543b7fca1:
+    format: null
+    handle: large
+    height: ''
+    interlace: none
+    mode: crop
+    name: Large
+    position: center-center
+    quality: '82'
+    width: '1000'
+matrixBlockTypes:
+  5d6bb878-f012-451a-ac14-308fb14613f3:
+    field: c91404ea-b3f4-4ebb-a2fb-171dbf75ea2b
+    fieldLayouts:
+      633c801c-c4fc-403c-81c1-a4ebb4b770fc:
+        tabs:
+          -
+            fields:
+              3ec69165-febc-44ab-b24e-bf8451779813:
+                required: false
+                sortOrder: 1
+            name: Content
+            sortOrder: 1
+    fields:
+      3ec69165-febc-44ab-b24e-bf8451779813:
+        contentColumnType: string
+        fieldGroup: null
+        handle: featuredBlog
+        instructions: ''
+        name: 'Featured Blog'
+        searchable: true
+        settings:
+          limit: '1'
+          localizeRelations: false
+          selectionLabel: ''
+          source: null
+          sources: '*'
+          targetSiteId: null
+          viewMode: null
+        translationKeyFormat: null
+        translationMethod: site
+        type: craft\fields\Entries
+    handle: featuredBlog
+    name: 'Featured Blog'
+    sortOrder: 1
+  9b7414d4-ed7c-486a-b8d8-65301002fea8:
+    field: c91404ea-b3f4-4ebb-a2fb-171dbf75ea2b
+    fieldLayouts:
+      a0b35ac8-f9cd-401b-b411-4bbcf7ffceb1:
+        tabs:
+          -
+            fields:
+              36d1e04a-2a43-48f1-9d1c-0af6fa4d07d3:
+                required: false
+                sortOrder: 1
+            name: Content
+            sortOrder: 1
+    fields:
+      36d1e04a-2a43-48f1-9d1c-0af6fa4d07d3:
+        contentColumnType: string
+        fieldGroup: null
+        handle: featuredTopics
+        instructions: ''
+        name: 'Featured Topics'
+        searchable: true
+        settings:
+          branchLimit: ''
+          limit: null
+          localizeRelations: false
+          selectionLabel: ''
+          source: 'group:946b1866-124f-4904-ad1f-d45980ff82b1'
+          sources: '*'
+          targetSiteId: null
+          viewMode: null
+        translationKeyFormat: null
+        translationMethod: site
+        type: craft\fields\Categories
+    handle: featuredTopics
+    name: 'Featured Topics'
+    sortOrder: 2
+plugins:
+  analytics:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.1.2
+  cp-field-inspect:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  default-dashboard:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  element-index-defaults:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  embeddedassets:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  expanded-singles:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  field-manager:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  icon-picker:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  image-resizer:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  mailgun:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  navigation:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.9
+  position-fieldtype:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.2.2
+  redactor-tweaks:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  seomatic:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.6
+  sprout-encode-email:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  sprout-fields:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.2.8
+  sprout-forms:
+    enabled: true
+    settings:
+      captchaSettings:
+        sproutforms-duplicatecaptcha:
+          enabled: 1
+        sproutforms-honeypotcaptcha:
+          enabled: 1
+          honeypotFieldName: beesknees
+          honeypotScreenReaderMessage: 'Leave this field blank'
+        sproutforms-javascriptcaptcha:
+          enabled: 1
+      enableEditFormEntryViaFrontEnd: 0
+      enablePayloadForwarding: 0
+      enablePerFormTemplateFolderOverride: 0
+      enableSaveData: 1
+      enableSaveDataPerFormBasis: 0
+      pluginNameOverride: ''
+      saveDataByDefault: 1
+      templateFolderOverride: sproutforms-accessibletemplates
+  sprout-forms-google-recaptcha:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.10
+  typedlinkfield:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  wordsmith:
+    edition: standard
+    enabled: true
+    schemaVersion: 0.0.0.0
+routes:
+  60c245f8-4a85-4297-b20f-1f36be186470:
+    siteUid: null
+    sortOrder: 1
+    template: authors/_entry
+    uriParts:
+      - authors/
+      -
+        - '*'
+        - '[^\/]+'
+    uriPattern: 'authors/<any:[^\/]+>'
+sections:
+  46c5d02f-455c-420e-9ea9-23477935e2b6:
+    enableVersioning: true
+    entryTypes:
+      d7630b9e-0581-408a-ac27-0a8f8e551a71:
+        fieldLayouts:
+          de2a6c0b-11ab-4eca-a1ef-38fbc1f2ce56:
+            tabs:
+              -
+                fields:
+                  c91404ea-b3f4-4ebb-a2fb-171dbf75ea2b:
+                    required: false
+                    sortOrder: 1
+                name: Content
+                sortOrder: 1
+        handle: homepage
+        hasTitleField: true
+        name: Homepage
+        sortOrder: 1
+        titleFormat: ''
+        titleLabel: Title
+    handle: homepage
+    name: Homepage
+    propagateEntries: true
+    siteSettings:
+      d31acb30-0eef-45e6-8b1c-ab6538efce86:
+        enabledByDefault: true
+        hasUrls: true
+        template: index
+        uriFormat: __home__
+    type: single
+  e17a1c28-68e0-44f5-8eb0-4c92e8f7c485:
+    enableVersioning: true
+    entryTypes:
+      06140e47-471c-43ac-8762-15001f07e1f9:
+        fieldLayouts:
+          1ba485f1-d38f-41aa-ba51-33887f6ed510:
+            tabs:
+              -
+                fields:
+                  1d2daaf5-054c-45fd-8720-29764bd1dcd3:
+                    required: false
+                    sortOrder: 2
+                  c06d2aa2-55d7-483b-9b42-46228ae93a21:
+                    required: false
+                    sortOrder: 3
+                  d95bd7dd-1306-4c7c-a4fb-75e6ce2ed2b1:
+                    required: false
+                    sortOrder: 1
+                name: Content
+                sortOrder: 1
+        handle: blog
+        hasTitleField: true
+        name: Blog
+        sortOrder: 1
+        titleFormat: ''
+        titleLabel: Title
+    handle: blog
+    name: Blog
+    propagateEntries: true
+    siteSettings:
+      d31acb30-0eef-45e6-8b1c-ab6538efce86:
+        enabledByDefault: true
+        hasUrls: true
+        template: blog/_entry
+        uriFormat: '{slug}'
+    type: channel
+siteGroups:
+  6324d02b-3b27-4246-b978-de418d1327e2:
+    name: Blog
+sites:
+  d31acb30-0eef-45e6-8b1c-ab6538efce86:
+    baseUrl: $DEFAULT_SITE_URL
+    handle: default
+    hasUrls: true
+    language: en-AU
+    name: Blog
+    primary: true
+    siteGroup: 6324d02b-3b27-4246-b978-de418d1327e2
+    sortOrder: 1
+system:
+  edition: pro
+  live: true
+  name: Blog
+  schemaVersion: 3.1.25
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  fieldLayouts:
+    f8aae8dc-4346-43b3-b40b-84e994579356:
+      tabs:
+        -
+          fields:
+            10fb8514-2f60-40ca-91ac-c5858755bb35:
+              required: false
+              sortOrder: 1
+          name: Content
+          sortOrder: 1
+  photoSubpath: ''
+  photoVolumeUid: b52fd10a-ed35-4f8b-a625-649267f6bc71
+  requireEmailVerification: true
+volumes:
+  4103dfa7-d124-4c6c-8f2b-21700e5544ca:
+    handle: home
+    hasUrls: true
+    name: Home
+    settings:
+      path: '@basePath/uploads/home'
+    sortOrder: 3
+    type: craft\volumes\Local
+    url: '@baseUrl/uploads/home'
+  b52fd10a-ed35-4f8b-a625-649267f6bc71:
+    handle: users
+    hasUrls: true
+    name: Users
+    settings:
+      path: '@basePath/uploads/users'
+    sortOrder: 2
+    type: craft\volumes\Local
+    url: '@baseUrl/uploads/users'
+  f3f851db-ae4e-4239-840f-a387317b68b8:
+    handle: general
+    hasUrls: true
+    name: General
+    settings:
+      path: '@basePath/uploads/general'
+    sortOrder: '1'
+    type: craft\volumes\Local
+    url: '@baseUrl/uploads/general'

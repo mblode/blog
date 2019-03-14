@@ -1,0 +1,42 @@
+
+{% extends '_layout' %}
+{% import '_macros/utilities' as utils %}
+{% set author = craft.users.username(craft.request.segment(2)).one %}
+
+{% block content %}
+
+<section>
+    <div>
+        <div>
+            {% if author.photo | length %}
+                {{ utils.lazyLoadImage(author.photo, "thumb") }}
+            {% endif %}
+        </div>
+
+        <div>
+            <h3>Articles by</h3>
+
+            <h1>{{ author }}</h1>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div>
+        <div>
+            {% set limit = 12 %}
+
+            {% paginate craft.entries.section('blog').authorId(author.id).limit(limit) as pageInfo, pageEntries %}
+
+            {% include '_includes/total-pages' %}
+
+            {% for item in pageEntries %}
+                {% include 'blog/_card-item' with {topic: "true"} %}
+            {% endfor %}
+
+            {% include '_includes/pagination' with {limit: limit} %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

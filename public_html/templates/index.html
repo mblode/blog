@@ -1,0 +1,57 @@
+{% extends '_layout' %}
+
+{% block content %}
+
+{% for block in entry.homepageContent.all() %}
+
+    {% if block.type == "featuredBlog" %}
+        {% set blog = block.featuredBlog.one %}
+
+        <section>
+            <div>
+                <div>
+                    {% if blog.featuredImage | length %}
+                        {{ utils.lazyLoadImage(blog.featuredImage.one, "large") }}
+                    {% endif %}
+
+                    {% if blog.citation | length %}
+                        <span>{{ blog.citation }}</span>
+                    {% endif %}
+                </div>
+
+                <div>
+                    {% if blog.topics.one | length %}
+                        <h3>{{ blog.topics.one }}</h3>
+                    {% endif %}
+
+                    <h1>{{ blog.title }}</h1>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+    <section>
+        {% set entries = craft.entries.section("blog").limit(6).all() %}
+
+        {% for item in entries %}
+            {% include "blog/_card-item" with {topic: "true"} %}
+        {% endfor %}
+    </section>
+
+    {% if block.type == "featuredTopics" %}
+        {% nav topic in block.featuredTopics.all %}
+            <h3>Featured Topic</h3>
+            <h1>{{ topic.title }}</h1>
+
+            <a href="{{ topic.url }}" class="btn">View all</a>
+
+            {% set entries = craft.entries.relatedTo(topic).limit(12).all() %}
+
+            {% for item in entries %}
+                {% include "blog/_card-item" %}
+            {% endfor %}
+        {% endnav %}
+    {% endif %}
+{% endfor %}
+
+{% endblock %}

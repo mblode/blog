@@ -1,0 +1,7 @@
+{% set users = craft.users.all %}
+
+<ul>
+    {% for user in users %}
+        <li><a href="{{ url('authors/'~user.username) }}">{{ user.name }}</a></li>
+    {% endfor %}
+</ul>
