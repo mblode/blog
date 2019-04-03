@@ -1,3 +1,5 @@
+{% import '_macros/utilities' as utils %}
+
 {% if entry is defined %}
     {% set page = entry %}
 {% endif %}
@@ -5,8 +7,6 @@
 {% if category is defined %}
     {% set page = category %}
 {% endif %}
-
-{% import '_macros/utilities' as utils %}
 
 {% if page is defined %}
     {% for block in page.pageBody.all() %}
@@ -33,8 +33,8 @@
         {% elseif block.type == 'image' %}
 
             {% if block.image.one() %}
-                <div class="block-image align-{{ block.alignment }} size-{{ block.size }}">
-                    <img src="{{ block.image.one().url(block.size.value) }}" alt="{{ block.image.one().title }}">
+                <div class="block-image align-{{ block.alignment }} ">
+                    <img src="{{ block.image.one().url("large") }}" alt="{{ block.image.one().title }}">
                 </div>
             {% endif %}
 

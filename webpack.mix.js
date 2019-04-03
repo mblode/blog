@@ -14,45 +14,45 @@ require('laravel-mix-purgecss');
  */
 
 mix.webpackConfig({
-  module: {
-    rules: [
-      {
-        test: /\.scss$/,
-        loader: 'import-glob-loader',
-      },
-    ],
-  },
+    module: {
+        rules: [
+            {
+                test: /\.scss$/,
+                loader: 'import-glob-loader',
+            },
+        ],
+    },
 });
 
 mix.copy('src/img', 'public_html/assets/img', false);
+mix.copy('src/fonts', 'public_html/assets/fonts', false);
 
-mix
-  .js('src/js/main.js', 'public_html/assets/js')
-  .sass('src/scss/style.scss', 'public_html/assets/css')
-  .options({
-    processCssUrls: false,
-    extractVueStyles: true,
-    postCss: [tailwindcss('./tailwind.js')],
-  })
-  .purgeCss({
-    enabled: mix.inProduction(),
-    globs: [
-      path.join(__dirname, 'public_html/templates/**/*.html'),
-      path.join(__dirname, 'public_html/assets/**/*.vue'),
-    ],
-    extensions: ['html', 'twig', 'js', 'php', 'vue'],
-  })
-  .sourceMaps();
+mix.js('src/js/main.js', 'public_html/assets/js')
+    .sass('src/scss/style.scss', 'public_html/assets/css')
+    .options({
+        processCssUrls: false,
+        extractVueStyles: true,
+        postCss: [tailwindcss('./tailwind.config.js')],
+    })
+    .purgeCss({
+        enabled: mix.inProduction(),
+        globs: [
+            path.join(__dirname, 'public_html/templates/**/*.html'),
+            path.join(__dirname, 'public_html/assets/**/*.vue'),
+        ],
+        extensions: ['html', 'twig', 'js', 'php', 'vue'],
+    })
+    .sourceMaps();
 
 mix.setPublicPath('public_html/assets');
 mix.setResourceRoot('assets/');
 
 mix.browserSync({
-  // Change this URL
-  proxy: process.env.MIX_PROXY,
-  files: [
-    'public_html/assets/css/{*,**/*}.css',
-    'public_html/assets/js/{*,**/*}.js',
-    'public_html/templates/{*,**/*}.+(html|twig)',
-  ],
+    // Change this URL
+    proxy: process.env.MIX_PROXY,
+    files: [
+        'public_html/assets/css/{*,**/*}.css',
+        'public_html/assets/js/{*,**/*}.js',
+        'public_html/templates/{*,**/*}.+(html|twig)',
+    ],
 });

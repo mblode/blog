@@ -1,25 +1,29 @@
 {% import '_macros/utilities' as utils %}
 
-{% set columns = (cols is defined) ? cols : 'col-sm-12 col-md-6 col-lg-4' %}
+{% set columns = (cols is defined) ? cols : 'w-1/2 px-2' %}
 
-<div class="{{ columns }} blog-card-col scroll-reveal">
-    <a href="{{ item.url }}" class="blog-card">
-        <div class="blog-card-inner">
-            {% if item.featuredImage | length %}
-                {{ utils.lazyLoadBgImage(item.featuredImage.one, "thumb", "blog-card-img") }}
-            {% endif %}
+<div class="{{ columns }} mb-8">
+    {% if item.featuredImage | length %}
+        <a href="{{ item.url }}" class="mb-4 block">
+            {{ utils.lazyLoadImage(item.featuredImage.one, "thumb", "max-w-full") }}
+        </a>
+    {% endif %}
 
-            <h3>{{ item.title }}</h3>
-        </div>
-    </a>
+    <h3 class="font-serif text-3xl mb-4 block">
+        <a href="{{ item.url }}" class="text-black no-underline hover:underline">
+            {{ item.title }}
+        </a>
+    </h3>
 
     {% if topic is defined %}
 
-        {% nav category in item.topics.all %}
-            <li>
-                <a href="{{ category.url }}">{{ category.title }}</a>
-            </li>
-        {% endnav %}
+        <ul class="list-none p-0 flex">
+            {% nav category in item.topics.all %}
+                <li>
+                    <a href="{{ category.url }}" class="inline-block mr-2 text-black no-underline hover:underline">{{ category.title }}{% if not loop.last %}, {% endif %}</a>
+                </li>
+            {% endnav %}
+        </ul>
 
     {% else %}
 

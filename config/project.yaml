@@ -10,7 +10,7 @@ categoryGroups:
     structure:
       maxLevels: '1'
       uid: 39e6d862-9dd3-45d8-b7d7-d9dcefa0eb1e
-dateModified: 1552558660
+dateModified: 1553416903
 email:
   fromEmail: m@blode.co
   fromName: Blog
@@ -195,6 +195,150 @@ matrixBlockTypes:
     handle: featuredBlog
     name: 'Featured Blog'
     sortOrder: 1
+  71f9853f-485f-437c-9c9a-51d76f665484:
+    field: c06d2aa2-55d7-483b-9b42-46228ae93a21
+    fieldLayouts:
+      b072f4ba-1a38-49f8-a29b-835e504c1e4a:
+        tabs:
+          -
+            fields:
+              0a53d3c6-7bc0-47a7-95c7-a7b25a8eb488:
+                required: false
+                sortOrder: 2
+              ff92ff63-4bb3-428e-9c4e-64f8f9914f79:
+                required: false
+                sortOrder: 1
+            name: Content
+            sortOrder: 1
+    fields:
+      0a53d3c6-7bc0-47a7-95c7-a7b25a8eb488:
+        contentColumnType: text
+        fieldGroup: null
+        handle: heading
+        instructions: 'The text for the heading.'
+        name: Heading
+        searchable: true
+        settings:
+          charLimit: '255'
+          code: ''
+          columnType: text
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
+      ff92ff63-4bb3-428e-9c4e-64f8f9914f79:
+        contentColumnType: string
+        fieldGroup: null
+        handle: size
+        instructions: 'Select an appropriate size for these images.'
+        name: Size
+        searchable: true
+        settings:
+          options:
+            -
+              default: '1'
+              label: 'Heading 2 (h2)'
+              value: h2
+            -
+              default: ''
+              label: 'Heading 3 (h3)'
+              value: h3
+            -
+              default: ''
+              label: 'Heading 4 (h4)'
+              value: h4
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\Dropdown
+    handle: heading
+    name: Heading
+    sortOrder: 2
+  7bf43f91-1bb1-43e5-b8bd-97ce0a5c81ba:
+    field: c06d2aa2-55d7-483b-9b42-46228ae93a21
+    fieldLayouts:
+      2ec2da8b-20db-4e6a-ac64-3b48678f6d75:
+        tabs:
+          -
+            fields:
+              056da049-edc8-4507-972e-52dfc9d5fc20:
+                required: false
+                sortOrder: 2
+              8e9f321a-944d-416b-aed8-5130c17c1cb5:
+                required: false
+                sortOrder: 3
+              e084b650-d08d-4575-99b4-8e8fb13f624b:
+                required: false
+                sortOrder: 1
+            name: Content
+            sortOrder: 1
+    fields:
+      056da049-edc8-4507-972e-52dfc9d5fc20:
+        contentColumnType: string
+        fieldGroup: null
+        handle: alignment
+        instructions: 'Select how to align the gallery on the page.'
+        name: Alignment
+        searchable: true
+        settings:
+          default: ''
+          options:
+            center: '1'
+            drop-left: ''
+            drop-right: ''
+            full: '1'
+            left: '1'
+            right: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: rias\positionfieldtype\fields\Position
+      8e9f321a-944d-416b-aed8-5130c17c1cb5:
+        contentColumnType: text
+        fieldGroup: null
+        handle: caption
+        instructions: ''
+        name: Caption
+        searchable: true
+        settings:
+          charLimit: ''
+          code: ''
+          columnType: text
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
+      e084b650-d08d-4575-99b4-8e8fb13f624b:
+        contentColumnType: string
+        fieldGroup: null
+        handle: image
+        instructions: 'Select or upload an image.'
+        name: Image
+        searchable: true
+        settings:
+          allowedKinds:
+            - image
+          defaultUploadLocationSource: 'volume:f3f851db-ae4e-4239-840f-a387317b68b8'
+          defaultUploadLocationSubpath: '{owner.slug}'
+          limit: '1'
+          localizeRelations: false
+          restrictFiles: '1'
+          selectionLabel: ''
+          singleUploadLocationSource: 'volume:f3f851db-ae4e-4239-840f-a387317b68b8'
+          singleUploadLocationSubpath: '{owner.slug}'
+          source: null
+          sources: '*'
+          targetSiteId: null
+          useSingleFolder: '1'
+          viewMode: list
+        translationKeyFormat: null
+        translationMethod: site
+        type: craft\fields\Assets
+    handle: image
+    name: Image
+    sortOrder: 4
   9b7414d4-ed7c-486a-b8d8-65301002fea8:
     field: c91404ea-b3f4-4ebb-a2fb-171dbf75ea2b
     fieldLayouts:
@@ -216,7 +360,7 @@ matrixBlockTypes:
         name: 'Featured Topics'
         searchable: true
         settings:
-          branchLimit: ''
+          branchLimit: '1'
           limit: null
           localizeRelations: false
           selectionLabel: ''
@@ -229,7 +373,169 @@ matrixBlockTypes:
         type: craft\fields\Categories
     handle: featuredTopics
     name: 'Featured Topics'
+    sortOrder: 3
+  b0b3a83b-8f7a-4b8f-a774-9d4e16451001:
+    field: c06d2aa2-55d7-483b-9b42-46228ae93a21
+    fieldLayouts:
+      29333a0b-06d5-431a-850e-4d6bf303ba43:
+        tabs:
+          -
+            fields:
+              0ee2e77d-7c2b-40de-9785-d754e0475515:
+                required: false
+                sortOrder: 1
+              a34fdb3b-ce32-433d-a0bb-657238d0a617:
+                required: false
+                sortOrder: 2
+            name: Content
+            sortOrder: 1
+    fields:
+      0ee2e77d-7c2b-40de-9785-d754e0475515:
+        contentColumnType: text
+        fieldGroup: null
+        handle: quote
+        instructions: 'Text shown in large, bold font. Used to enforce strong call-to-action or content.'
+        name: Quote
+        searchable: true
+        settings:
+          charLimit: ''
+          code: ''
+          columnType: text
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
+      a34fdb3b-ce32-433d-a0bb-657238d0a617:
+        contentColumnType: text
+        fieldGroup: null
+        handle: author
+        instructions: 'An optional author field to attribute this quote to.'
+        name: Author
+        searchable: true
+        settings:
+          charLimit: ''
+          code: ''
+          columnType: text
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
+    handle: quote
+    name: Quote
+    sortOrder: 3
+  bb1e48fc-0166-42cb-8103-b57a37075fbe:
+    field: c91404ea-b3f4-4ebb-a2fb-171dbf75ea2b
+    fieldLayouts:
+      b6e0bb8e-ad98-433e-8b77-cdd925f892cf:
+        tabs:
+          -
+            fields:
+              c54566b7-316f-489c-a9d0-2a937b770626:
+                required: false
+                sortOrder: 1
+            name: Content
+            sortOrder: 1
+    fields:
+      c54566b7-316f-489c-a9d0-2a937b770626:
+        contentColumnType: text
+        fieldGroup: null
+        handle: heading
+        instructions: ''
+        name: Heading
+        searchable: true
+        settings:
+          charLimit: ''
+          code: ''
+          columnType: text
+          initialRows: '4'
+          multiline: ''
+          placeholder: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\fields\PlainText
+    handle: recentPosts
+    name: 'Recent Posts'
     sortOrder: 2
+  c540c670-cf87-489b-8b13-3ec86ee98d9b:
+    field: c06d2aa2-55d7-483b-9b42-46228ae93a21
+    fieldLayouts:
+      b8e43af0-0acb-4d37-9c0b-a0b2b4831e8c:
+        tabs:
+          -
+            fields:
+              656c4864-3477-4259-829d-8dec4a548140:
+                required: false
+                sortOrder: 1
+            name: Content
+            sortOrder: 1
+    fields:
+      656c4864-3477-4259-829d-8dec4a548140:
+        contentColumnType: string
+        fieldGroup: null
+        handle: images
+        instructions: ''
+        name: Images
+        searchable: true
+        settings:
+          allowedKinds:
+            - image
+          defaultUploadLocationSource: 'volume:f3f851db-ae4e-4239-840f-a387317b68b8'
+          defaultUploadLocationSubpath: ''
+          limit: ''
+          localizeRelations: false
+          restrictFiles: '1'
+          selectionLabel: ''
+          singleUploadLocationSource: 'volume:f3f851db-ae4e-4239-840f-a387317b68b8'
+          singleUploadLocationSubpath: '{owner.slug}'
+          source: null
+          sources: '*'
+          targetSiteId: null
+          useSingleFolder: '1'
+          viewMode: list
+        translationKeyFormat: null
+        translationMethod: site
+        type: craft\fields\Assets
+    handle: gallery
+    name: Gallery
+    sortOrder: 5
+  c9dfe923-0687-4c8a-91f4-1ff080f3a721:
+    field: c06d2aa2-55d7-483b-9b42-46228ae93a21
+    fieldLayouts:
+      585ce341-7b1f-4815-8a7b-24b85573fa2a:
+        tabs:
+          -
+            fields:
+              b7ae4462-19a4-4d79-a502-811463c667c2:
+                required: false
+                sortOrder: 1
+            name: Content
+            sortOrder: 1
+    fields:
+      b7ae4462-19a4-4d79-a502-811463c667c2:
+        contentColumnType: text
+        fieldGroup: null
+        handle: text
+        instructions: ''
+        name: __blank__
+        searchable: true
+        settings:
+          availableTransforms: '*'
+          availableVolumes: '*'
+          cleanupHtml: '1'
+          columnType: text
+          purifierConfig: ''
+          purifyHtml: '1'
+          redactorConfig: ''
+        translationKeyFormat: null
+        translationMethod: none
+        type: craft\redactor\Field
+    handle: contentBlock
+    name: 'Content Block'
+    sortOrder: 1
 plugins:
   analytics:
     edition: standard

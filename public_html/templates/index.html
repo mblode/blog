@@ -1,3 +1,5 @@
+{% import '_macros/utilities' as utils %}
+
 {% extends '_layout' %}
 
 {% block content %}
@@ -7,11 +9,15 @@
     {% if block.type == "featuredBlog" %}
         {% set blog = block.featuredBlog.one %}
 
-        <section>
-            <div>
-                <div>
+        <div class="bg-gray-500 h-full absolute pin-t pin-l w-full">
+            <div class="w-1/3 bg-blue-500 block absolute pin-t pin-l h-full"></div>
+        </div>
+
+        <section class="h-screen min-h-64 container">
+            <div class="relative z-50 flex items-center justify-center h-full flex -mx-8">
+                <div class="w-2/3 px-8">
                     {% if blog.featuredImage | length %}
-                        {{ utils.lazyLoadImage(blog.featuredImage.one, "large") }}
+                        {{ utils.lazyLoadImage(blog.featuredImage.one, "large", "max-w-full") }}
                     {% endif %}
 
                     {% if blog.citation | length %}
@@ -19,38 +25,64 @@
                     {% endif %}
                 </div>
 
-                <div>
+                <div class="w-1/3 px-8">
                     {% if blog.topics.one | length %}
-                        <h3>{{ blog.topics.one }}</h3>
+                        <div>
+                            <a href="{{ blog.topics.one.url }}" class="font-semibold text-blue-700 text-xl no-underline hover:underline tracking-wide">{{ blog.topics.one }}</a>
+                        </div>
                     {% endif %}
 
-                    <h1>{{ blog.title }}</h1>
+                    <h1 class="font-serif text-6xl mt-4 leading-tight">
+                        <a href="{{ blog.url }}" class="text-blue-700 no-underline hover:underline">
+                            {{ blog.title }}
+                        </a>
+                    </h1>
                 </div>
             </div>
         </section>
-    {% endif %}
 
-    <section>
-        {% set entries = craft.entries.section("blog").limit(6).all() %}
+    {% elseif block.type == "recentPosts" %}
 
-        {% for item in entries %}
-            {% include "blog/_card-item" with {topic: "true"} %}
-        {% endfor %}
-    </section>
+        <section class="container">
+            {% set entries = craft.entries.section("blog").limit(6).all() %}
 
-    {% if block.type == "featuredTopics" %}
+            <div class="flex -mx-2 pt-12 pb-4 flex-wrap">
+                {% for item in entries %}
+                    {% include "blog/_card-item" with {topic: "true"} %}
+                {% endfor %}
+            </div>
+        </section>
+
+    {% elseif block.type == "featuredTopics" %}
+
         {% nav topic in block.featuredTopics.all %}
-            <h3>Featured Topic</h3>
-            <h1>{{ topic.title }}</h1>
+            <section class="pt-12 bg-blue-300">
+                <div class="container">
+                    <div class="flex -mx-2 pb-4 flex-wrap">
+                        <div class="w-full px-2 flex justify-between items-end mb-8">
+                            <div>
+                                <h3 class="font-semibold text-blue-700 text-xl no-underline hover:underline tracking-wid">Featured Topic</h3>
 
-            <a href="{{ topic.url }}" class="btn">View all</a>
+                                <h1 class="font-serif text-6xl mt-4 leading-tight mb-0">
+                                    <a href="{{ topic.url }}" class="text-blue-700 no-underline hover:underline">
+                                        {{ topic.title }}
+                                    </a>
+                                </h1>
+                            </div>
 
-            {% set entries = craft.entries.relatedTo(topic).limit(12).all() %}
+                            <a href="{{ topic.url }}" class="btn mb-4">View all</a>
+                        </div>
 
-            {% for item in entries %}
-                {% include "blog/_card-item" %}
-            {% endfor %}
+                        {% set entries = craft.entries.relatedTo(topic).limit(12).all() %}
+
+                        {% for item in entries %}
+                            {% include "blog/_card-item" with {cols: "w-1/3 px-2"} %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
         {% endnav %}
+
     {% endif %}
 {% endfor %}
 

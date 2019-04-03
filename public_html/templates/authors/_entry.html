@@ -1,6 +1,8 @@
 
-{% extends '_layout' %}
 {% import '_macros/utilities' as utils %}
+
+{% extends '_layout' %}
+
 {% set author = craft.users.username(craft.request.segment(2)).one %}
 
 {% block content %}
@@ -14,9 +16,9 @@
         </div>
 
         <div>
-            <h3>Articles by</h3>
+            <h3 class="font-serif">Articles by</h3>
 
-            <h1>{{ author }}</h1>
+            <h1 class="font-serif">{{ author }}</h1>
         </div>
     </div>
 </section>
